@@ -1,0 +1,14 @@
+[
+  {"day": "2026-11-14", "condition": "облачно", "temperature_c": 15.0,
+   "precipitation_probability": 20, "is_mock": true,
+   "source": "Мок-данные (вымышленный прогноз, не для реального планирования)"},
+  {"day": "2026-11-15", "condition": "дождь", "temperature_c": 13.0,
+   "precipitation_probability": 70, "is_mock": true,
+   "source": "Мок-данные (вымышленный прогноз, не для реального планирования)"},
+  {"day": "2026-11-16", "condition": "дождь", "temperature_c": 12.0,
+   "precipitation_probability": 80, "is_mock": true,
+   "source": "Мок-данные (вымышленный прогноз, не для реального планирования)"},
+  {"day": "2026-11-17", "condition": "ясно", "temperature_c": 14.0,
+   "precipitation_probability": 10, "is_mock": true,
+   "source": "Мок-данные (вымышленный прогноз, не для реального планирования)"}
+]

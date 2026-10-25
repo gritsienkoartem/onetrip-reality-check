@@ -1,0 +1,133 @@
+{
+  "description": "Настраиваемые пороги проверок, веса ранжирования и оценочные допущения. Все значения — допущения проекта, а не подтверждённые факты.",
+  "thresholds": {
+    "late_arrival_start_hour": 0,
+    "late_arrival_end_hour": 5,
+    "min_layover_minutes": {
+      "domestic": 60,
+      "international": 120
+    },
+    "max_minutes_to_center": 40,
+    "max_minutes_to_metro": 15,
+    "max_walking_km_per_day": 15,
+    "max_attractions_per_day": 5,
+    "max_correction_attempts": 3
+  },
+  "risk_scoring": {
+    "description": "Эвристика проекта, а не научно проверенная вероятность. Очки за каждую найденную проблему.",
+    "points_by_severity": {"low": 1, "medium": 3, "high": 6},
+    "medium_level_from": 3,
+    "high_level_from": 7
+  },
+  "cost_estimates": {
+    "description": "Оценки, не подтверждённые цены. Нужны, пока нет реальных данных.",
+    "source": "Оценка проекта (не подтверждённая цена)",
+    "airport_transfer_one_way_rub": 1500,
+    "local_transport_per_day_rub": 600
+  },
+  "transport_estimates": {
+    "description": "Расчёт проекта по расстоянию между городами. Это НЕ реальные тарифы и не наличие мест.",
+    "source": "Оценка проекта по расстоянию (не реальная цена)",
+    "plane": {
+      "base_rub": 2500,
+      "rub_per_km": 4.5,
+      "speed_kmh": 750,
+      "ground_minutes": 120,
+      "max_km": 12000,
+      "label": "Самолёт (оценка)"
+    },
+    "train": {
+      "base_rub": 1200,
+      "rub_per_km": 2.2,
+      "speed_kmh": 70,
+      "ground_minutes": 45,
+      "max_km": 8000,
+      "label": "РЖД (оценка)"
+    },
+    "bus": {
+      "base_rub": 500,
+      "rub_per_km": 1.8,
+      "speed_kmh": 55,
+      "ground_minutes": 30,
+      "max_km": 1500,
+      "label": "Автобус (оценка)"
+    }
+  },
+  "transport_nodes": {
+    "description": "Радиусы поиска аэропортов, вокзалов и автостанций в OpenStreetMap. Если узла рядом нет, вид транспорта не предлагается. Это допущение проекта.",
+    "airport_radius_km": 150,
+    "train_radius_km": 80,
+    "bus_radius_km": 60,
+    "max_per_kind": 3
+  },
+  "access_estimates": {
+    "description": "Оценка дороги от центра места до транспортного узла и от узла до отеля. Не тариф такси и не расписание общественного транспорта.",
+    "source": "Оценка проекта: дорога до транспортного узла",
+    "hotel_source": "Оценка проекта: дорога между отелем и транспортным узлом",
+    "walk_max_km": 2.0,
+    "walk_speed_kmh": 4.5,
+    "taxi_speed_kmh": 40,
+    "taxi_base_rub": 200,
+    "taxi_rub_per_km": 35,
+    "taxi_wait_minutes": 5,
+    "public_transport_min_km": 1.0,
+    "public_transport_speed_kmh": 18,
+    "public_transport_base_rub": 80,
+    "public_transport_rub_per_km": 6,
+    "public_transport_wait_minutes": 12,
+    "public_transport_extra_minutes": 8
+  },
+  "hotel_estimates": {
+    "description": "Средняя оценка проживания, когда нет онлайн-цен. Не является ценой конкретного отеля.",
+    "source": "Оценка проекта: средняя стоимость проживания",
+    "price_per_night_rub": 4500,
+    "tourist_tax_per_night_rub": 0,
+    "rating": 5.0,
+    "minutes_to_center": 25,
+    "minutes_to_metro": 15
+  },
+  "hotel_search": {
+    "description": "Поиск реальных отелей, хостелов и гостевых домов в OpenStreetMap. Цена, рейтинг и время в пути — оценка проекта, а не данные отеля.",
+    "source": "OpenStreetMap (Overpass API); цена и время — оценка проекта",
+    "radius_km": 12,
+    "support_radius_km": 6,
+    "max_candidates": 40,
+    "max_options": 5,
+    "center_max_km": 2.5,
+    "water_max_km": 0.8,
+    "station_max_km": 2.0,
+    "center_walk_max_km": 2.0,
+    "walk_speed_kmh": 4.5,
+    "taxi_speed_kmh": 30,
+    "taxi_wait_minutes": 5,
+    "star_price_rub": 700,
+    "base_price_rub": {
+      "hotel": 4500,
+      "hostel": 1900,
+      "guest_house": 3300,
+      "guesthouse": 3300,
+      "apartment": 4300,
+      "motel": 3000,
+      "chalet": 5200,
+      "camp_site": 1300,
+      "caravan_site": 1500,
+      "alpine_hut": 2000
+    }
+  },
+  "fx_to_rub": {
+    "description": "Условные курсы валют к рублю для convert_currency(). Не биржевые котировки.",
+    "rates": {
+      "RUB": 1.0,
+      "USD": 95.0,
+      "TRY": 2.45,
+      "GEL": 30.0,
+      "EUR": 100.0
+    }
+  },
+  "ranking_weights": {
+    "description": "Веса для детерминированного ранжирования. Внутри каждой группы сумма равна 1.",
+    "flights": {"price": 0.6, "duration": 0.3, "stops": 0.1},
+    "hotels": {"price": 0.35, "rating": 0.25, "location": 0.25, "preferences": 0.15},
+    "places": {"interest_match": 0.45, "rating": 0.25, "price": 0.15, "crowd": 0.15}
+  }
+}

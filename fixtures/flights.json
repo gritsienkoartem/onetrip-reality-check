@@ -1,0 +1,44 @@
+[
+  {
+    "id": "F001", "direction": "outbound", "origin": "Москва", "destination": "Стамбул",
+    "airline": "Мок-Авиа", "departure_time": "2026-11-14T08:20:00", "arrival_time": "2026-11-14T12:10:00",
+    "price_rub": 14500, "stops": 0, "layover_minutes": [], "connection_type": "none",
+    "baggage_included": false, "baggage_fee_rub": 2500,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  },
+  {
+    "id": "F002", "direction": "outbound", "origin": "Москва", "destination": "Стамбул",
+    "airline": "Мок-Эйр", "departure_time": "2026-11-14T23:10:00", "arrival_time": "2026-11-15T03:00:00",
+    "price_rub": 9800, "stops": 0, "layover_minutes": [], "connection_type": "none",
+    "baggage_included": false, "baggage_fee_rub": 2500,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  },
+  {
+    "id": "F003", "direction": "outbound", "origin": "Москва", "destination": "Стамбул",
+    "airline": "Мок-Транзит", "departure_time": "2026-11-14T06:00:00", "arrival_time": "2026-11-14T15:30:00",
+    "price_rub": 8700, "stops": 1, "layover_minutes": [50], "connection_type": "international",
+    "baggage_included": true, "baggage_fee_rub": 0,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  },
+  {
+    "id": "F101", "direction": "return", "origin": "Стамбул", "destination": "Москва",
+    "airline": "Мок-Авиа", "departure_time": "2026-11-17T14:00:00", "arrival_time": "2026-11-17T17:50:00",
+    "price_rub": 15200, "stops": 0, "layover_minutes": [], "connection_type": "none",
+    "baggage_included": false, "baggage_fee_rub": 2500,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  },
+  {
+    "id": "F102", "direction": "return", "origin": "Стамбул", "destination": "Москва",
+    "airline": "Мок-Эйр", "departure_time": "2026-11-17T19:30:00", "arrival_time": "2026-11-17T23:20:00",
+    "price_rub": 11900, "stops": 0, "layover_minutes": [], "connection_type": "none",
+    "baggage_included": false, "baggage_fee_rub": 2500,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  },
+  {
+    "id": "F103", "direction": "return", "origin": "Стамбул", "destination": "Москва",
+    "airline": "Мок-Транзит", "departure_time": "2026-11-17T09:00:00", "arrival_time": "2026-11-17T18:40:00",
+    "price_rub": 8900, "stops": 1, "layover_minutes": [40], "connection_type": "international",
+    "baggage_included": true, "baggage_fee_rub": 0,
+    "is_mock": true, "source": "Мок-данные (вымышленные значения для демонстрации)"
+  }
+]

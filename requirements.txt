@@ -1,0 +1,5 @@
+streamlit>=1.30
+pydantic>=2.5,<3
+requests>=2.31
+python-dotenv>=1.0
+pytest>=7.4

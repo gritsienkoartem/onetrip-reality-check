@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="0.55">
+      <stop offset="0" stop-color="#3B6FD8"/>
+      <stop offset="0.42" stop-color="#8A86BE"/>
+      <stop offset="0.72" stop-color="#E8A06C"/>
+      <stop offset="1" stop-color="#F7B955"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.78" cy="0.36" r="0.34">
+      <stop offset="0" stop-color="#FFE9A8" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#FFC970" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#FFC970" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFE3C2" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7C8BC4"/>
+      <stop offset="1" stop-color="#C79A8A"/>
+    </linearGradient>
+    <style>
+      @keyframes drift {from {transform: translateX(-50px);} to {transform: translateX(70px);}}
+      .c1 {animation: drift 46s ease-in-out infinite alternate;}
+      .c2 {animation: drift 62s ease-in-out infinite alternate-reverse;}
+      .c3 {animation: drift 54s ease-in-out infinite alternate;}
+    </style>
+  </defs>
+  <rect width="1600" height="760" fill="url(#sky)"/>
+  <rect width="1600" height="760" fill="url(#sun)"/>
+
+  <g fill="#FFFFFF" opacity="0.28">
+    <g class="c1"><ellipse cx="260" cy="170" rx="150" ry="22"/><ellipse cx="350" cy="150" rx="90" ry="20"/></g>
+    <g class="c2"><ellipse cx="860" cy="120" rx="170" ry="20"/><ellipse cx="960" cy="104" rx="80" ry="16"/></g>
+    <g class="c3"><ellipse cx="1330" cy="215" rx="150" ry="20"/><ellipse cx="1420" cy="196" rx="80" ry="16"/></g>
+  </g>
+
+  <path d="M0 470 L120 400 L230 450 L360 360 L470 430 L600 340 L720 420 L860 330 L980 410 L1100 350 L1240 430 L1380 360 L1500 430 L1600 390 L1600 760 L0 760 Z" fill="#8E80B6" opacity="0.8"/>
+  <path d="M0 560 L180 430 L300 500 L450 380 L620 520 L700 720 L0 720 Z" fill="#E58F5B"/>
+  <path d="M450 380 L520 440 L470 470 L400 430 Z" fill="#F4B26B"/>
+  <path d="M880 700 L1000 520 L1180 400 L1300 470 L1450 380 L1600 470 L1600 720 L880 720 Z" fill="#D9794F"/>
+  <path d="M1450 380 L1530 440 L1480 470 L1410 420 Z" fill="#F2B574"/>
+
+  <path d="M380 720 L500 620 L760 330 L840 385 L925 290 L1015 405 L1085 380 L1290 620 L1420 720 Z" fill="#1F2B5C"/>
+  <path d="M925 290 L1015 405 L965 385 L905 335 Z" fill="#F2A25C"/>
+  <path d="M760 330 L840 385 L805 435 L735 385 Z" fill="#7B4C80"/>
+  <path d="M1085 380 L1180 480 L1120 470 L1050 420 Z" fill="#3A3F7A"/>
+
+  <rect y="560" width="1600" height="160" fill="url(#mist)"/>
+
+  <path d="M0 650 C200 570 380 610 580 660 L580 760 L0 760 Z" fill="#6E8040"/>
+  <path d="M1600 630 C1400 610 1220 650 1040 700 L1040 760 L1600 760 Z" fill="#CBC56B"/>
+  <path d="M300 705 C500 655 1100 655 1350 710 C1200 745 500 750 300 705 Z" fill="url(#lake)"/>
+  <path d="M520 712 C700 700 960 700 1130 714" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M0 742 C300 705 700 740 1000 730 C1300 720 1500 705 1600 725 L1600 760 L0 760 Z" fill="#E8C58A"/>
+
+  <g fill="#35452B">
+    <path d="M70 590 l-26 90 h52 z"/><path d="M70 540 l-20 70 h40 z"/>
+    <path d="M150 620 l-22 80 h44 z"/><path d="M210 640 l-18 66 h36 z"/>
+  </g>
+  <g fill="#4C5C2E">
+    <path d="M1500 590 l-26 90 h52 z"/><path d="M1500 540 l-20 70 h40 z"/>
+    <path d="M1430 625 l-20 74 h40 z"/><path d="M1560 640 l-18 66 h36 z"/>
+  </g>
+  <g fill="#2A3A55" opacity="0.8">
+    <path d="M610 640 l-12 40 h24 z"/><path d="M640 646 l-10 34 h20 z"/><path d="M1180 640 l-12 40 h24 z"/>
+  </g>
+</svg>
