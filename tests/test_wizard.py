@@ -278,6 +278,18 @@ def test_results_show_hotel_total_and_test_data_labels(app):
     assert not any("Aviasales" in value for value in captions)
 
 
+def test_results_warn_when_places_source_returned_nothing(
+    app, fixture_provider, monkeypatch
+):
+    monkeypatch.setattr(fixture_provider, "get_places", lambda city: [])
+    _open_review(app)
+    _click_and_run(app, "Найти варианты и составить план")
+
+    assert any(
+        "Места для программы не найдены" in warning.value for warning in app.warning
+    )
+
+
 def test_results_edit_preserves_other_answers(app):
     _open_review(app)
     _click_and_run(app, "Найти варианты и составить план")
