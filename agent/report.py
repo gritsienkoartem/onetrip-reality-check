@@ -1,9 +1,13 @@
 """Текстовое и Markdown-представление плана для интерфейса и выгрузки."""
 from __future__ import annotations
 
-from datetime import date, datetime, time
+from datetime import date, datetime, time, timedelta, timezone
 
 from models import CostBreakdown, Issue, Severity, TripPlan
+
+# Сервис работает только по России: время получения данных показываем по
+# Москве, иначе на сервере в другом поясе дата сдвигается на сутки.
+MSK = timezone(timedelta(hours=3))
 
 
 def format_money(value: float) -> str:
@@ -19,10 +23,10 @@ def format_time_value(value: time | None) -> str:
 
 
 def format_fetched_at(value: datetime | None) -> str:
-    """Момент получения данных в местном времени («26.10.2026, 00:45»)."""
+    """Момент получения данных по Москве («26.10.2026, 00:45 мск»)."""
     if value is None:
         return "время получения не указано"
-    return value.astimezone().strftime("%d.%m.%Y, %H:%M")
+    return value.astimezone(MSK).strftime("%d.%m.%Y, %H:%M мск")
 
 
 def format_duration(minutes: int) -> str:

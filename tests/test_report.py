@@ -1,5 +1,5 @@
 """Тесты Markdown-отчёта и форматирования."""
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 from agent.corrector import build_corrected_plan
 from agent.report import (
@@ -38,12 +38,11 @@ def test_format_helpers():
     assert format_time_value(None) == "—"
 
 
-def test_format_fetched_at_shows_local_time():
+def test_format_fetched_at_shows_moscow_time():
     assert format_fetched_at(None) == "время получения не указано"
-    stamp = datetime.now().astimezone().replace(
-        year=2026, month=10, day=26, hour=0, minute=45, second=0, microsecond=0
-    )
-    assert format_fetched_at(stamp) == "26.10.2026, 00:45"
+    # 22:11 UTC на сервере — это уже 01:11 следующего дня по Москве.
+    stamp = datetime(2026, 10, 25, 22, 11, tzinfo=timezone.utc)
+    assert format_fetched_at(stamp) == "26.10.2026, 01:11 мск"
 
 
 def test_markdown_contains_required_sections():
