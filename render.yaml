@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: onetrip-reality-check
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: DATA_PROVIDER
+        value: live
+      - key: TRAVEL_SEARCH
+        value: "1"
+      - key: LLM_TIMEOUT_SECONDS
+        value: "30"
+      - key: LLM_BASE_URL
+        sync: false
+      - key: LLM_MODEL
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
+      - key: TRAVELPAYOUTS_TOKEN
+        sync: false
