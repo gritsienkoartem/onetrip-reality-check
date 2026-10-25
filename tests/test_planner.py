@@ -47,6 +47,11 @@ def test_plan_has_flights_hotel_and_days(plan):
     assert plan.request.duration_days == 4
 
 
+def test_plan_records_when_data_was_fetched(plan):
+    assert plan.generated_at is not None
+    assert plan.generated_at.tzinfo is not None
+
+
 def test_plan_contains_ranked_places_without_duplicates(plan):
     items = [item for day in plan.days for item in day.items]
     assert items

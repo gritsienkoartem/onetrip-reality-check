@@ -25,6 +25,7 @@ from agent.report import (
     baggage_label,
     format_date_ru,
     format_duration,
+    format_fetched_at,
     format_money,
     format_time_value,
     plan_to_markdown,
@@ -2655,6 +2656,14 @@ def _render_budget_tab(plan) -> None:
 
 
 def _render_sources_tab(plan) -> None:
+    st.markdown("**Когда получены данные**")
+    st.caption(
+        f"План собран {format_fetched_at(plan.generated_at)}. "
+        "Погода Open-Meteo и объекты OpenStreetMap запрашиваются заново при "
+        "каждом поиске. Билеты и расписание сервис-посредник отдаёт из кэша "
+        "поставщика — там обновление задаёт поставщик, а не OneTrip. "
+        "Кнопка «Повторить поиск» на экране результатов делает новый запрос."
+    )
     if any("тестовые данные" in note.lower() for note in plan.data_notes):
         st.warning(
             "В плане использованы тестовые данные: это вымышленные цены, "
@@ -2870,6 +2879,11 @@ def _render_plan(result: CorrectionResult) -> None:
         )
     columns[2].metric("Проблем после проверки", len(plan.issues))
     columns[3].metric("Автоматических исправлений", result.attempts)
+    st.caption(
+        f"Данные получены: {format_fetched_at(plan.generated_at)}. "
+        "Погода и места запрашиваются заново при каждом поиске, билеты и "
+        "расписание приходят из кэша поставщика. Обновить — кнопкой «Повторить поиск»."
+    )
 
     markdown = plan_to_markdown(
         plan,

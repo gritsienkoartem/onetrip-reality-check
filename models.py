@@ -448,3 +448,6 @@ class TripPlan(BaseModel):
     risk_score: int = Field(default=0, ge=0)
     risk_level: Optional[RiskLevel] = None
     data_notes: list[str] = Field(default_factory=list)  # например, «Использованы мок-данные»
+    # Момент, когда план собран из ответов источников: по нему интерфейс
+    # показывает свежесть данных, не выдавая кэш поставщика за реальное время.
+    generated_at: Optional[datetime] = None

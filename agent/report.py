@@ -1,7 +1,7 @@
 """Текстовое и Markdown-представление плана для интерфейса и выгрузки."""
 from __future__ import annotations
 
-from datetime import date, time
+from datetime import date, datetime, time
 
 from models import CostBreakdown, Issue, Severity, TripPlan
 
@@ -16,6 +16,13 @@ def format_date_ru(value: date | None) -> str:
 
 def format_time_value(value: time | None) -> str:
     return value.strftime("%H:%M") if value is not None else "—"
+
+
+def format_fetched_at(value: datetime | None) -> str:
+    """Момент получения данных в местном времени («26.10.2026, 00:45»)."""
+    if value is None:
+        return "время получения не указано"
+    return value.astimezone().strftime("%d.%m.%Y, %H:%M")
 
 
 def format_duration(minutes: int) -> str:
@@ -166,6 +173,7 @@ def plan_to_markdown(
         f"всего — {request.travelers}",
         f"**Темп поездки:** {STYLE_WORDS.get(request.trip_style, request.trip_style)}",
         f"**Уровень риска:** {risk_label(plan)}",
+        f"**Данные получены:** {format_fetched_at(plan.generated_at)}",
     ]
     if request.accommodation_preferences:
         lines.append(

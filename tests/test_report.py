@@ -1,10 +1,11 @@
 """Тесты Markdown-отчёта и форматирования."""
-from datetime import date
+from datetime import date, datetime
 
 from agent.corrector import build_corrected_plan
 from agent.report import (
     format_date_ru,
     format_duration,
+    format_fetched_at,
     format_money,
     format_time_value,
     plan_to_markdown,
@@ -37,6 +38,14 @@ def test_format_helpers():
     assert format_time_value(None) == "—"
 
 
+def test_format_fetched_at_shows_local_time():
+    assert format_fetched_at(None) == "время получения не указано"
+    stamp = datetime.now().astimezone().replace(
+        year=2026, month=10, day=26, hour=0, minute=45, second=0, microsecond=0
+    )
+    assert format_fetched_at(stamp) == "26.10.2026, 00:45"
+
+
 def test_markdown_contains_required_sections():
     result = build_result()
     markdown = plan_to_markdown(
@@ -52,6 +61,7 @@ def test_markdown_contains_required_sections():
     assert "## Проверка реалистичности" in markdown
     assert "**Оценка стоимости:**" in markdown
     assert "**Бюджет:** 60 000 RUB" in markdown
+    assert "**Данные получены:**" in markdown
     assert "| **Итого (оценка)** |" in markdown
     assert "Стоимость и риск — оценки проекта по заданным правилам" in markdown
 

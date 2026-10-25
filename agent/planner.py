@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable, Collection
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 from agent.itinerary import MAX_PLACES_PER_DAY, build_days
 from agent.ranker import (
@@ -859,6 +859,7 @@ def build_trip_plan(
         risk_score=0,
         risk_level=None,
         data_notes=list(notes),
+        generated_at=datetime.now().astimezone(),
     )
     _report_progress(progress, "Проверяю план по правилам Reality Check")
     check = run_reality_check(
