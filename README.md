@@ -509,6 +509,8 @@ streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headl
 
 Бесплатный тариф засыпает после 15 минут без посетителей: первая загрузка занимает около минуты. Ссылка вида `https://onetrip-reality-check.onrender.com` доступна любому без входа в аккаунт.
 
+При создании сервиса из `render.yaml` Render включает Auto-Deploy: `git push` в `main` пересобирает контейнер. Во время сборки сайт может отвечать ошибкой, пока не поднимется новая версия; настройка видна в **Settings → Build & Deploy**.
+
 Ключи добавляются в **Environment** сервиса в Render, значения берите из локального `.env`:
 
 ```text
